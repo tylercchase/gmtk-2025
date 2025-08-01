@@ -5,9 +5,9 @@
 
 [node name="world" type="Node2D"]
 
+[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("2_gh0ne")]
+player_node = NodePath("../Player")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
-
-[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("2_gh0ne")]
-player_node = NodePath("../Player")

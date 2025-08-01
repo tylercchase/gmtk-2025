@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4gmvlosj7ifi"]
+[gd_scene load_steps=4 format=3 uid="uid://d4gmvlosj7ifi"]
 
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="1_eewff"]
+[ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="2_gh0ne"]
+[ext_resource type="PackedScene" uid="uid://ubva2gdfgrlx" path="res://src/apple/apple.tscn" id="3_5q4o7"]
 
 [node name="world" type="Node2D"]
 
+[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("2_gh0ne")]
+player_node = NodePath("../Player")
+
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
+position = Vector2(527, 324)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Apple" parent="Node2D" instance=ExtResource("3_5q4o7")]
+position = Vector2(138, 256)
+
+[node name="Apple2" parent="Node2D" instance=ExtResource("3_5q4o7")]
+position = Vector2(679, 109)
+
+[node name="Apple3" parent="Node2D" instance=ExtResource("3_5q4o7")]
+position = Vector2(841, 512)

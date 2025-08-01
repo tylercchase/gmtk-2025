@@ -1,9 +1,10 @@
+class_name Player
 extends Area2D
 
-@export var SPEED = 400
+@export var SPEED = 200
 
 var direction = Vector2(0,-1)
-var rotation_amount = 50
+var rotation_amount = 75
 
 var screen_size # Size of the game window.
 
@@ -18,4 +19,7 @@ func _input(_event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	global_position = direction.rotated(rotation).normalized() * SPEED * delta
+	global_position = (global_position + (direction.rotated(rotation).normalized() * SPEED * delta)).clamp(
+	 Vector2.ZERO,
+	 screen_size
+	)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ubva2gdfgrlx"]
+
+[ext_resource type="PackedScene" uid="uid://c61yeh5367kks" path="res://src/components/collectible_component.tscn" id="1_pek8c"]
+[ext_resource type="PackedScene" uid="uid://bh4ecelxxdhfb" path="res://src/components/add_item_component.tscn" id="2_5qehy"]
+[ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="3_yckcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yckcf"]
+size = Vector2(50, 49)
+
+[node name="Apple" type="Node2D"]
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("1_pek8c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_yckcf")
+
+[node name="AddItemComponent" parent="." node_paths=PackedStringArray("collectible_component") instance=ExtResource("2_5qehy")]
+item = "Apple"
+collectible_component = NodePath("../CollectibleComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.245036, 0.189754, 1)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("3_yckcf")

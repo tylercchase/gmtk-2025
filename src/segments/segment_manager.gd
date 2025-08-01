@@ -3,10 +3,11 @@ extends Node2D
 @export var player_node: Player
 
 @export var trail_line: Line2D
-@export var collision_shape: CollisionPolygon2D
-@export var test_polygon_node: Polygon2D
 @export var test_polygon_node_2: Polygon2D
-@export var test_output_container: Node2D
+
+@export var area_collision_shape: CollisionShape2D
+@export var area: Area2D
+
 var number_of_segments = 50
 
 var past_locations = []
@@ -44,4 +45,13 @@ func check_closed_loops():
 
 		if intersection != null:
 			print("Loop closure detected!")
-			test_polygon_node_2.set_polygon(points_array.slice(i))
+			test_polygon_node_2.set_polygon(points_array.slice(i)) # white debug shape
+
+
+			area_collision_shape.shape.set_points(points_array.slice(i))
+			await Engine.get_main_loop().process_frame
+			await Engine.get_main_loop().process_frame
+			print(area.get_overlapping_areas())
+			for item in area.get_overlapping_areas():
+				if item.has_method("on_interact"):
+					item.on_interact()

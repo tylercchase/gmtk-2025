@@ -9,5 +9,7 @@
 player_node = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
+position = Vector2(527, 324)

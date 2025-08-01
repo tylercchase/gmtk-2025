@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4gmvlosj7ifi"]
+[gd_scene load_steps=2 format=3 uid="uid://d4gmvlosj7ifi"]
 
-[ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="1_eewff"]
-[ext_resource type="Script" uid="uid://dnw6l7bqumiwb" path="res://src/test_movement.gd" id="2_gh0ne"]
+[ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="1_eewff"]
 
 [node name="world" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_eewff")
-script = ExtResource("2_gh0ne")
+[node name="Player" parent="." instance=ExtResource("1_eewff")]

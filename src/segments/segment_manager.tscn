@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ppqphm8w01t"]
+
+[ext_resource type="Script" uid="uid://bk1uk53qxpegm" path="res://src/segments/segment_manager.gd" id="1_f8jwr"]
+[ext_resource type="PackedScene" uid="uid://p8n7ha1b8gv7" path="res://src/segments/player_segment.tscn" id="2_i10sa"]
+
+[node name="SegmentManager" type="Node2D"]
+script = ExtResource("1_f8jwr")
+segment_scene = ExtResource("2_i10sa")

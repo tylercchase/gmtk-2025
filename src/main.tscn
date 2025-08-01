@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4gmvlosj7ifi"]
+[gd_scene load_steps=3 format=3 uid="uid://d4gmvlosj7ifi"]
 
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="1_eewff"]
+[ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="2_gh0ne"]
 
 [node name="world" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
+
+[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("2_gh0ne")]
+player_node = NodePath("../Player")

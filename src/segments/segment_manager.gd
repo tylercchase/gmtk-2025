@@ -6,6 +6,7 @@ extends Node2D
 @export var collision_shape: CollisionPolygon2D
 @export var test_polygon_node: Polygon2D
 @export var test_polygon_node_2: Polygon2D
+@export var test_output_container: Node2D
 var number_of_segments = 50
 
 var past_locations = []
@@ -31,17 +32,25 @@ func check_closed_loops():
 	# var test2 = Geometry2D.triangulate_polygon(trail_line.points)
 	# test_polygon_node.polygon = test2
 
-	# var res = Geometry2D.triangulate_delaunay(trail_line.points)
-	var res = Geometry2D.triangulate_polygon(trail_line.points)
+	var res = Geometry2D.triangulate_delaunay(trail_line.points)
+	# var res = Geometry2D.triangulate_polygon(trail_line.points)
 	# var res = Geometry.triangulate_polygon($Other/Shape.polygon)
-	test_polygon_node.set_polygon(PackedVector2Array())
-	var test_array = PackedVector2Array()
+	test_polygon_node.set_polygon(trail_line.points)# = vec_array
+
+	# var test_array = PackedVector2Array()
+	for child in test_output_container.get_children():
+		child.queue_free()
+
 	for i in range(0, res.size(), 3):
-		# poly.color = Color(rand_range(0, 1), rand_range(0, 1), rand_range(0, 1))
+		var poly: Polygon2D = Polygon2D.new()
+		poly.color = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
 
 		# Result are indexes from the original polygon points
-		test_array.append_array(PackedVector2Array([res[i], res[i+1]]))
-	test_polygon_node.set_polygon(trail_line.points)# = vec_array
+		var vec_array = PackedVector2Array([test_polygon_node.polygon[res[i]], test_polygon_node.polygon[res[i+1]], test_polygon_node.polygon[res[i+2]]])
+		poly.polygon = vec_array
+		test_output_container.add_child(poly)
+
+		# test_array.append_array(PackedVector2Array([res[i], res[i+1]]))
 
 	# 	var arr_mesh = ArrayMesh.new()
 	# 	var arrays = []

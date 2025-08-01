@@ -12,13 +12,14 @@ point_count = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i10sa"]
 
-[node name="SegmentManager" type="Node2D" node_paths=PackedStringArray("trail_line", "collision_shape", "test_polygon_node", "test_polygon_node_2")]
+[node name="SegmentManager" type="Node2D" node_paths=PackedStringArray("trail_line", "collision_shape", "test_polygon_node", "test_polygon_node_2", "test_output_container")]
 script = ExtResource("1_f8jwr")
 segment_scene = ExtResource("2_i10sa")
 trail_line = NodePath("Line2D")
 collision_shape = NodePath("StaticBody2D/CollisionShape2D")
 test_polygon_node = NodePath("Polygon2D")
 test_polygon_node_2 = NodePath("ResultPolygon2D")
+test_output_container = NodePath("Node2D")
 
 [node name="Line2D" type="Line2D" parent="."]
 width = 59.7
@@ -43,3 +44,5 @@ polygon = PackedVector2Array(-42, -177, 76, 1, 76, 1, 17, -201)
 [node name="Other" type="Node2D" parent="."]
 
 [node name="Result" type="Node2D" parent="Other"]
+
+[node name="Node2D" type="Node2D" parent="."]

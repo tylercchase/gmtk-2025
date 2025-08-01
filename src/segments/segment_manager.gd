@@ -29,33 +29,19 @@ func _on_timer_timeout():
 		check_closed_loops()
 
 func check_closed_loops():
-	# var test2 = Geometry2D.triangulate_polygon(trail_line.points)
-	# test_polygon_node.polygon = test2
+	var points_array =  trail_line.points
+	var new_segment_start = points_array[points_array.size() - 2]
+	var new_segment_end = points_array[points_array.size() - 1]
 
-	var res = Geometry2D.triangulate_delaunay(trail_line.points)
-	# var res = Geometry2D.triangulate_polygon(trail_line.points)
-	# var res = Geometry.triangulate_polygon($Other/Shape.polygon)
-	test_polygon_node.set_polygon(trail_line.points)# = vec_array
+	for i in range(1, points_array.size() - 2): # Iterate through all segments, excluding the last two
+		var existing_segment_start = points_array[i - 1]
+		var existing_segment_end = points_array[i]
 
-	# var test_array = PackedVector2Array()
-	for child in test_output_container.get_children():
-		child.queue_free()
+		var intersection = Geometry2D.segment_intersects_segment(
+			new_segment_start, new_segment_end,
+			existing_segment_start, existing_segment_end
+		)
 
-	for i in range(0, res.size(), 3):
-		var poly: Polygon2D = Polygon2D.new()
-		poly.color = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
-
-		# Result are indexes from the original polygon points
-		var vec_array = PackedVector2Array([test_polygon_node.polygon[res[i]], test_polygon_node.polygon[res[i+1]], test_polygon_node.polygon[res[i+2]]])
-		poly.polygon = vec_array
-		test_output_container.add_child(poly)
-
-		# test_array.append_array(PackedVector2Array([res[i], res[i+1]]))
-
-	# 	var arr_mesh = ArrayMesh.new()
-	# 	var arrays = []
-	# 	arrays.resize(Mesh.ARRAY_MAX)
-	# 	arrays[Mesh.ARRAY_VERTEX] = vec_array
-	# 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	# 	test_mesh.mesh = arr_mesh
-	# pass
+		if intersection != null:
+			print("Loop closure detected!")
+			test_polygon_node_2.set_polygon(points_array.slice(i))

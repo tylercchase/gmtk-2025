@@ -1,9 +1,38 @@
-[gd_scene format=3 uid="uid://dwumukl8x0xq7"]
+[gd_scene load_steps=6 format=3 uid="uid://dwumukl8x0xq7"]
 
-[node name="UpgradeMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://hso657cchuqb" path="res://src/menus/upgrade/tree_camera.gd" id="1_5gbj0"]
+[ext_resource type="PackedScene" uid="uid://b2e3cqoh7f5l1" path="res://src/menus/upgrade/upgrade_button.tscn" id="2_5gbj0"]
+[ext_resource type="Script" uid="uid://ps2c8mb4abcu" path="res://src/upgrades/upgrade_requirement.gd" id="3_m5u62"]
+[ext_resource type="Script" uid="uid://cndo4mrkn07ft" path="res://src/upgrades/upgrade.gd" id="4_siov3"]
+
+[sub_resource type="Resource" id="Resource_ynbbg"]
+script = ExtResource("4_siov3")
+name = ""
+id = ""
+requirements = Array[ExtResource("3_m5u62")]([])
+metadata/_custom_type_script = "uid://cndo4mrkn07ft"
+
+[node name="UpgradeMenu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-76, -89)
+script = ExtResource("1_5gbj0")
+
+[node name="Button" parent="." instance=ExtResource("2_5gbj0")]
+offset_left = 345.0
+offset_top = 182.0
+offset_right = 481.0
+offset_bottom = 318.0
+upgrade_resource = SubResource("Resource_ynbbg")
+
+[node name="Button3" parent="." instance=ExtResource("2_5gbj0")]
+offset_left = 489.0
+offset_top = -363.0
+offset_right = 625.0
+offset_bottom = -227.0
+
+[node name="Button2" parent="." instance=ExtResource("2_5gbj0")]
+offset_left = -519.0
+offset_top = -399.0
+offset_right = -383.0
+offset_bottom = -263.0

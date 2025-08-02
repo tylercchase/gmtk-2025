@@ -34,15 +34,12 @@ func update_button_visibility():
 		button.disabled = false
 	for button in upgrade_buttons.values():
 		if !button.visible:
-			var should_shadow = false
 			for requirement in button.upgrade_resource.requirements:
 				if upgrade_buttons[requirement.id].visible and !upgrade_buttons[requirement.id].disabled:
-					should_shadow = true
+					button.visible = true
+					button.disabled = true
 					break
-			if should_shadow:
-				button.visible = true
-				button.disabled = true
-			
+
 
 func _draw() -> void:
 	update_button_visibility()

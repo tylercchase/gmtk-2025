@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bebw44j0d3rob"]
+
+[ext_resource type="Script" uid="uid://kgrio0uti0pb" path="res://src/menues/main/main_menu.gd" id="1_vqa7h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrvvx"]
+bg_color = Color(0.568528, 0.33687, 0.230283, 1)
+
+[node name="MainMenu" type="PanelContainer" node_paths=PackedStringArray("start_button", "quit_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vqa7h")
+start_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton")
+quit_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton")
+level_scene = "uid://cevc126su5f5q"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(470.905, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nrvvx")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 55
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 66
+text = "SNAKE GAME"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"

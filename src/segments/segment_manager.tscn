@@ -19,6 +19,7 @@ area_collision_shape = NodePath("Area2D/CollisionShape2D")
 area = NodePath("Area2D")
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = 1
 width = 59.7
 width_curve = SubResource("Curve_i10sa")
 texture = ExtResource("3_i10sa")

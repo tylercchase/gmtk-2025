@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhisaf2mh2g72"]
+
+[ext_resource type="Script" uid="uid://dd356e1mep0u7" path="res://src/menus/tooltip/upgrade_tooltip.gd" id="1_6y7um"]
+
+[node name="UpgradeTooltip" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6y7um")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "test"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+fit_content = true
+scroll_active = false

@@ -3,8 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="1_mmaho"]
 [ext_resource type="Script" uid="uid://dfog3ywk40e3p" path="res://src/menus/upgrade/upgrade_button.gd" id="2_0eguc"]
 
-[node name="Button" type="Button"]
+[node name="Button" type="Button" node_paths=PackedStringArray("remote_element_node")]
 offset_right = 8.0
 offset_bottom = 8.0
 icon = ExtResource("1_mmaho")
 script = ExtResource("2_0eguc")
+origin = 2
+remote_element_node = NodePath(".")
+tooltip_strings = Array[String](["Test of things"])

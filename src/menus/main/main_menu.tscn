@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bebw44j0d3rob"]
+[gd_scene load_steps=6 format=3 uid="uid://bebw44j0d3rob"]
 
 [ext_resource type="Script" uid="uid://kgrio0uti0pb" path="res://src/menus/main/main_menu.gd" id="1_vqa7h"]
+[ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_87ivk"]
+[ext_resource type="Script" uid="uid://cshxb8qg5nbd8" path="res://src/menus/main/main_menu_player.gd" id="3_153ft"]
+[ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="4_153ft"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrvvx"]
 bg_color = Color(0.568528, 0.33687, 0.230283, 1)
@@ -15,6 +18,14 @@ script = ExtResource("1_vqa7h")
 start_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton")
 quit_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton")
 level_scene = "uid://cevc126su5f5q"
+
+[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("4_153ft")]
+player_node = NodePath("../MainMenuTestPlayer")
+
+[node name="MainMenuTestPlayer" parent="." node_paths=PackedStringArray("container") instance=ExtResource("2_87ivk")]
+position = Vector2(902, 422)
+script = ExtResource("3_153ft")
+container = NodePath("../HBoxContainer/SnakeZone")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -52,3 +63,9 @@ text = "Start"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
+
+[node name="SnakeZone" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[editable path="MainMenuTestPlayer"]

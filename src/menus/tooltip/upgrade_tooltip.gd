@@ -1,13 +1,17 @@
 extends PanelContainer
 
+@export var upgrade_title: Label
+@export var upgrade_description: RichTextLabel
 
 func _ready() -> void:
     Events.tooltip_changed.connect(_on_tooltip_changed)
     visible = false
 
 func update_info(upgrade: Upgrade):
-    print(upgrade)
     visible = true
+    upgrade_title.text = upgrade.name
+    upgrade_description.text = upgrade.description
+
 
 
 func _process(delta: float) -> void:

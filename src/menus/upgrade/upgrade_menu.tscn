@@ -1,34 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwumukl8x0xq7"]
+[gd_scene load_steps=5 format=3 uid="uid://dwumukl8x0xq7"]
 
 [ext_resource type="Script" uid="uid://hso657cchuqb" path="res://src/menus/upgrade/tree_camera.gd" id="1_5gbj0"]
 [ext_resource type="PackedScene" uid="uid://b2e3cqoh7f5l1" path="res://src/menus/upgrade/upgrade_button.tscn" id="2_5gbj0"]
-[ext_resource type="Script" uid="uid://ps2c8mb4abcu" path="res://src/upgrades/upgrade_requirement.gd" id="3_m5u62"]
-[ext_resource type="Script" uid="uid://cndo4mrkn07ft" path="res://src/upgrades/upgrade.gd" id="4_siov3"]
+[ext_resource type="Resource" uid="uid://4pqkh6ahfar4" path="res://src/upgrades/upgrades/resources/basic_speed.tres" id="3_m5u62"]
 [ext_resource type="PackedScene" uid="uid://dhisaf2mh2g72" path="res://src/menus/tooltip/upgrade_tooltip.tscn" id="5_siov3"]
-
-[sub_resource type="Resource" id="Resource_ynbbg"]
-script = ExtResource("4_siov3")
-name = "Test"
-description = "A test of this system"
-id = "test"
-requirements = Array[ExtResource("3_m5u62")]([])
-metadata/_custom_type_script = "uid://cndo4mrkn07ft"
-
-[sub_resource type="Resource" id="Resource_53qew"]
-script = ExtResource("4_siov3")
-name = "ahhhhhh"
-description = "ahhhhhh"
-id = "ah"
-requirements = Array[ExtResource("3_m5u62")]([])
-metadata/_custom_type_script = "uid://cndo4mrkn07ft"
-
-[sub_resource type="Resource" id="Resource_siov3"]
-script = ExtResource("4_siov3")
-name = "Test2"
-description = "test"
-id = "test2"
-requirements = Array[ExtResource("3_m5u62")]([])
-metadata/_custom_type_script = "uid://cndo4mrkn07ft"
 
 [node name="UpgradeMenu" type="Node2D"]
 
@@ -37,24 +12,10 @@ position = Vector2(-76, -89)
 script = ExtResource("1_5gbj0")
 
 [node name="Button" parent="." instance=ExtResource("2_5gbj0")]
-offset_left = 138.0
-offset_top = -70.0
-offset_right = 274.0
-offset_bottom = 66.0
-upgrade_resource = SubResource("Resource_ynbbg")
-
-[node name="Button3" parent="." instance=ExtResource("2_5gbj0")]
-offset_left = 489.0
-offset_top = -363.0
-offset_right = 625.0
-offset_bottom = -227.0
-upgrade_resource = SubResource("Resource_53qew")
-
-[node name="Button2" parent="." instance=ExtResource("2_5gbj0")]
-offset_left = -519.0
-offset_top = -399.0
-offset_right = -383.0
-offset_bottom = -263.0
-upgrade_resource = SubResource("Resource_siov3")
+offset_left = -218.0
+offset_top = -259.0
+offset_right = -82.0
+offset_bottom = -123.0
+upgrade_resource = ExtResource("3_m5u62")
 
 [node name="UpgradeTooltip" parent="." instance=ExtResource("5_siov3")]

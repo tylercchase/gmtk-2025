@@ -21,16 +21,17 @@ upgrade_container = NodePath("../UpgradeContainer")
 [node name="UpgradeContainer" type="Node2D" parent="."]
 
 [node name="Button" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
-offset_left = -128.0
-offset_top = -52.0
-offset_bottom = 84.0
+offset_left = -149.0
+offset_top = -33.0
+offset_right = -13.0
+offset_bottom = 103.0
 upgrade_resource = ExtResource("3_m5u62")
 
 [node name="Button2" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
-offset_left = -365.0
-offset_top = -337.0
-offset_right = -229.0
-offset_bottom = -201.0
+offset_left = -428.0
+offset_top = -316.0
+offset_right = -292.0
+offset_bottom = -180.0
 upgrade_resource = ExtResource("5_53qew")
 
 [node name="Button3" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]

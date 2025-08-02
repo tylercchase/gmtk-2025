@@ -35,7 +35,7 @@ func update_button_visibility():
 	for button in upgrade_buttons.values():
 		if !button.visible:
 			for requirement in button.upgrade_resource.requirements:
-				if upgrade_buttons[requirement.id].visible and !upgrade_buttons[requirement.id].disabled:
+				if upgrade_buttons.has(requirement.id) and upgrade_buttons[requirement.id].visible and !upgrade_buttons[requirement.id].disabled:
 					button.visible = true
 					button.disabled = true
 					break
@@ -54,8 +54,12 @@ func update_connections():
 			for requirement in requirements:
 				if upgrade_buttons.has(requirement.id):
 					if upgrade_buttons[requirement.id].visible and button.visible:
-						draw_line(button.global_position, upgrade_buttons[requirement.id].global_position, Color.WHITE, 15.0)
-					# maybe do a dashed line for upgrade requirements not yet met
+						var base_coords = button.global_position + button.get_global_rect().size / 2
+						var dest_coords = upgrade_buttons[requirement.id].global_position + upgrade_buttons[requirement.id].get_global_rect().size / 2
+						if !button.disabled:
+							draw_line(base_coords, dest_coords, Color.WHITE, 15.0)
+						else:
+							draw_dashed_line(base_coords, dest_coords, Color.WHITE, 15.0, 20.0)
 
 func _on_purchased_upgrade():
 	queue_redraw()

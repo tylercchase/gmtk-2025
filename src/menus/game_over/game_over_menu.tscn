@@ -51,6 +51,7 @@ layout_mode = 2
 
 [node name="Label3" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "2 apples
 2 other things
 2 more things

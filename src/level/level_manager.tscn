@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7y1w8n44w8h3"]
+
+[ext_resource type="Script" uid="uid://dwtarq2hg73oy" path="res://src/level/level_manager.gd" id="1_q7nky"]
+[ext_resource type="PackedScene" uid="uid://bjblidy7c61jd" path="res://src/menus/game_over/game_over_menu.tscn" id="2_tu2fa"]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_q7nky")
+game_over_scene = ExtResource("2_tu2fa")

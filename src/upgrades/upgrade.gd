@@ -8,6 +8,7 @@ extends Resource
 @export var purchase_prices: Array[int] # maybe needs a resource here for different types of currencies?? or an enum
 # also acts as a max-level count by the amount of purchase prices listed
 
+
 @export var requirements: Array[UpgradeRequirement]
 
 

@@ -15,4 +15,5 @@ enum NumberType {
     DIVIDE
 }
 func on_buy_level():
+    print('doing stat level stuff!')
     pass

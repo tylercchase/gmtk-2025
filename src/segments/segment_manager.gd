@@ -45,10 +45,12 @@ func check_closed_loops():
 
 		if intersection != null:
 			print("Loop closure detected!")
-			test_polygon_node_2.set_polygon(points_array.slice(i)) # white debug shape
+			var temp = points_array.slice(i)
+			if len(temp) % 2:
+				temp.remove_at(len(temp)-1)
+			test_polygon_node_2.set_polygon(temp) # white debug shape
 
-
-			area_collision_shape.shape.set_points(points_array.slice(i))
+			area_collision_shape.shape.set_segments(temp)
 			await Engine.get_main_loop().process_frame
 			await Engine.get_main_loop().process_frame
 			print(area.get_overlapping_areas())

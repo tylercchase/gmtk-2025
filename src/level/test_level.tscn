@@ -17,17 +17,6 @@ anchor_mode = 0
 [node name="Player" parent="." instance=ExtResource("2_5ipog")]
 position = Vector2(527, 324)
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Apple" parent="Node2D" instance=ExtResource("3_88en4")]
-position = Vector2(138, 256)
-
-[node name="Apple2" parent="Node2D" instance=ExtResource("3_88en4")]
-position = Vector2(679, 109)
-
-[node name="Apple3" parent="Node2D" instance=ExtResource("3_88en4")]
-position = Vector2(841, 512)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]

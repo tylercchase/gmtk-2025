@@ -27,17 +27,17 @@ func _on_timer_timeout():
 	game_over_node.load_run_stats(current_run_items)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress_bar.value =  timer.time_left / timer.wait_time
 
 func _on_item_collected(item: Item):
 	var modified_amount = 1
-	if State.resource_modifiers_add.has(item.name):
-		modified_amount += State.resource_modifiers_add[item.name]
-	if State.resource_modifiers_multiply.has(item.name):
-		modified_amount *= State.resource_modifiers_multiply[item.name]
-	if current_run_items.has(item.name):
-		current_run_items[item.name] += modified_amount
+	if State.resource_modifiers_add.has(item.id):
+		modified_amount += State.resource_modifiers_add[item.id]
+	if State.resource_modifiers_multiply.has(item.id):
+		modified_amount *= State.resource_modifiers_multiply[item.id]
+	if current_run_items.has(item.id):
+		current_run_items[item.id] += modified_amount
 	else:
-		current_run_items[item.name] = modified_amount
+		current_run_items[item.id] = modified_amount
 	print(current_run_items)

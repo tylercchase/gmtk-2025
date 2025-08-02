@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwumukl8x0xq7"]
+[gd_scene load_steps=9 format=3 uid="uid://dwumukl8x0xq7"]
 
 [ext_resource type="Script" uid="uid://hso657cchuqb" path="res://src/menus/upgrade/tree_camera.gd" id="1_5gbj0"]
 [ext_resource type="PackedScene" uid="uid://b2e3cqoh7f5l1" path="res://src/menus/upgrade/upgrade_button.tscn" id="2_5gbj0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bn0mnlfx3utoo" path="res://src/upgrades/upgrades/resources/speed_2.tres" id="5_53qew"]
 [ext_resource type="PackedScene" uid="uid://dhisaf2mh2g72" path="res://src/menus/tooltip/upgrade_tooltip.tscn" id="5_siov3"]
 [ext_resource type="Resource" uid="uid://ch3fa657jofdw" path="res://src/upgrades/upgrades/resources/speed_3.tres" id="6_t3hjq"]
+[ext_resource type="Script" uid="uid://bcaklunve0aa2" path="res://src/menus/upgrade/currency_panel.gd" id="8_t3hjq"]
 
 [node name="UpgradeMenu" type="Node2D"]
 rotation = -0.00138479
@@ -46,3 +47,34 @@ metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeTooltip" parent="." instance=ExtResource("5_siov3")]
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 241.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer" node_paths=PackedStringArray("currency_label")]
+layout_mode = 2
+script = ExtResource("8_t3hjq")
+currency_label = NodePath("VBoxContainer/RichTextLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Currency"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=red]Apple[/color]: %s"
+fit_content = true

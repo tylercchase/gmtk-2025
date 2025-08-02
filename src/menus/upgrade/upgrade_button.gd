@@ -1,4 +1,3 @@
-@tool
 class_name UpgradeButton
 extends Button
 
@@ -48,5 +47,7 @@ func _on_button_pressed():
 		State.purchased_upgrades[upgrade_resource.id] += 1
 	else:
 		State.purchased_upgrades[upgrade_resource.id] = 1
+	# remove the required amount from things
+	
 	update_display()
 	Events.emit_purchased_upgrade()

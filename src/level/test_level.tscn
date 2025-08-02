@@ -27,4 +27,25 @@ position = Vector2(679, 109)
 [node name="Apple3" parent="Node2D" instance=ExtResource("3_88en4")]
 position = Vector2(841, 512)
 
-[node name="LevelManager" parent="." instance=ExtResource("4_5ipog")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("progress_bar", "player") instance=ExtResource("4_5ipog")]
+progress_bar = NodePath("../CanvasLayer/Control/ProgressBar")
+player = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+max_value = 1.0
+show_percentage = false

@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://ch3fa657jofdw" path="res://src/upgrades/upgrades/resources/speed_3.tres" id="6_t3hjq"]
 
 [node name="UpgradeMenu" type="Node2D"]
+rotation = -0.00138479
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-76, -89)
@@ -33,6 +34,7 @@ offset_top = -316.0
 offset_right = -292.0
 offset_bottom = -180.0
 upgrade_resource = ExtResource("5_53qew")
+metadata/_edit_use_anchors_ = true
 
 [node name="Button3" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = 286.0
@@ -40,5 +42,7 @@ offset_top = -225.0
 offset_right = 422.0
 offset_bottom = -89.0
 upgrade_resource = ExtResource("6_t3hjq")
+metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeTooltip" parent="." instance=ExtResource("5_siov3")]
+metadata/_edit_use_anchors_ = true

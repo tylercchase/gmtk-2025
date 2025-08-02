@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var item: String
+@export var item: Item
 @export var collectible_component: CollectibleComponent
 
 func _ready() -> void:
@@ -12,4 +12,4 @@ func _on_collectible_collected():
 
 
 func add_item():
-    print("Give the player" + item)
+    Events.emit_item_collected(item)

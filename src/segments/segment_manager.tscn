@@ -1,14 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://6ppqphm8w01t"]
+[gd_scene load_steps=7 format=3 uid="uid://6ppqphm8w01t"]
 
 [ext_resource type="Script" uid="uid://bk1uk53qxpegm" path="res://src/segments/segment_manager.gd" id="1_f8jwr"]
 [ext_resource type="PackedScene" uid="uid://p8n7ha1b8gv7" path="res://src/segments/player_segment.tscn" id="2_i10sa"]
-[ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="3_i10sa"]
+[ext_resource type="Gradient" uid="uid://o4ru57ncmoua" path="res://src/segments/segment_manager.tres" id="3_6b5f6"]
+[ext_resource type="Texture2D" uid="uid://3omhncqaiygc" path="res://src/segments/Worm Body 2 (2).png" id="3_i10sa"]
 
 [sub_resource type="Curve" id="Curve_i10sa"]
 _data = [Vector2(0, 0.390909), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+<<<<<<< Updated upstream
+[sub_resource type="Gradient" id="Gradient_i10sa"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.48)
+colors = PackedColorArray(0.917824, 0.23458, 1.92523e-07, 1, 0.684128, 0.0659657, 0.130093, 1)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_f8jwr"]
+=======
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_i10sa"]
+>>>>>>> Stashed changes
 
 [node name="SegmentManager" type="Node2D" node_paths=PackedStringArray("trail_line", "test_polygon_node_2", "area_collision_shape", "area")]
 script = ExtResource("1_f8jwr")
@@ -22,9 +32,19 @@ area = NodePath("Area2D")
 z_index = 1
 width = 59.7
 width_curve = SubResource("Curve_i10sa")
-texture = ExtResource("3_i10sa")
+<<<<<<< Updated upstream
+gradient = SubResource("Gradient_i10sa")
 texture_mode = 2
+begin_cap_mode = 2
 end_cap_mode = 1
+=======
+gradient = ExtResource("3_6b5f6")
+texture = ExtResource("3_i10sa")
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+>>>>>>> Stashed changes
 
 [node name="ResultPolygon2D" type="Polygon2D" parent="."]
 
@@ -33,4 +53,4 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("ConcavePolygonShape2D_i10sa")
+shape = SubResource("ConvexPolygonShape2D_f8jwr")

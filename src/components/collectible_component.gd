@@ -6,4 +6,4 @@ signal collected
 
 
 func on_interact():
-    print("interaction")
+    collected.emit()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cevc126su5f5q"]
+[gd_scene load_steps=6 format=3 uid="uid://cevc126su5f5q"]
 
 [ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="1_wfa51"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_5ipog"]
-[ext_resource type="PackedScene" uid="uid://ubva2gdfgrlx" path="res://src/apple/apple.tscn" id="3_88en4"]
+[ext_resource type="PackedScene" uid="uid://ubva2gdfgrlx" path="res://src/collectibles/apple/apple.tscn" id="3_88en4"]
 [ext_resource type="PackedScene" uid="uid://b7y1w8n44w8h3" path="res://src/level/level_manager.tscn" id="4_5ipog"]
+[ext_resource type="PackedScene" uid="uid://m58glpi7hgow" path="res://src/collectibles/collectible_spawner.tscn" id="5_88en4"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -49,4 +50,8 @@ show_percentage = false
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("progress_bar", "player") instance=ExtResource("4_5ipog")]
 progress_bar = NodePath("../CanvasLayer/Control/ProgressBar")
+player = NodePath("../Player")
+
+[node name="CollectibleSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_88en4")]
+apples = ExtResource("3_88en4")
 player = NodePath("../Player")

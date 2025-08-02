@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 
 @export var upgrade_container: Node2D
@@ -32,6 +31,18 @@ func update_button_visibility():
 	for button in upgrade_buttons.values():
 		var resource = button.upgrade_resource
 		button.visible = check_button_enabled(resource)
+		button.disabled = false
+	for button in upgrade_buttons.values():
+		if !button.visible:
+			var should_shadow = false
+			for requirement in button.upgrade_resource.requirements:
+				if upgrade_buttons[requirement.id].visible and !upgrade_buttons[requirement.id].disabled:
+					should_shadow = true
+					break
+			if should_shadow:
+				button.visible = true
+				button.disabled = true
+			
 
 func _draw() -> void:
 	update_button_visibility()

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="gmtk-2025"
-run/main_scene="uid://d4gmvlosj7ifi"
+run/main_scene="uid://bebw44j0d3rob"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+State="*res://src/singletons/state.gd"
 
 [input]
 

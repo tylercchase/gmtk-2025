@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cevc126su5f5q"]
+
+[ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="1_wfa51"]
+[ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_5ipog"]
+[ext_resource type="PackedScene" uid="uid://ubva2gdfgrlx" path="res://src/apple/apple.tscn" id="3_88en4"]
+[ext_resource type="PackedScene" uid="uid://b7y1w8n44w8h3" path="res://src/level/level_manager.tscn" id="4_5ipog"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("1_wfa51")]
+player_node = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Player" parent="." instance=ExtResource("2_5ipog")]
+position = Vector2(527, 324)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Apple" parent="Node2D" instance=ExtResource("3_88en4")]
+position = Vector2(138, 256)
+
+[node name="Apple2" parent="Node2D" instance=ExtResource("3_88en4")]
+position = Vector2(679, 109)
+
+[node name="Apple3" parent="Node2D" instance=ExtResource("3_88en4")]
+position = Vector2(841, 512)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="LevelManager" parent="." node_paths=PackedStringArray("progress_bar", "player") instance=ExtResource("4_5ipog")]
+progress_bar = NodePath("../CanvasLayer/Control/ProgressBar")
+player = NodePath("../Player")

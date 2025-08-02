@@ -9,7 +9,7 @@ stat = 0
 amount = 1.05
 type = 2
 name = "Basic Speed"
-description = "Upgrades snake speed by 5%"
+description = "Upgrades snake [color=slate_blue]speed[/color] by [rainbow speed=0.2]5%[/rainbow]."
 id = "basic-speed"
 purchase_prices = Array[int]([5])
 requirements = Array[ExtResource("1_3w3fe")]([])

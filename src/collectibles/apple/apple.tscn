@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ubva2gdfgrlx"]
+[gd_scene load_steps=6 format=3 uid="uid://ubva2gdfgrlx"]
 
 [ext_resource type="PackedScene" uid="uid://c61yeh5367kks" path="res://src/components/collectible_component.tscn" id="1_pek8c"]
 [ext_resource type="PackedScene" uid="uid://bh4ecelxxdhfb" path="res://src/components/add_item_component.tscn" id="2_5qehy"]
+[ext_resource type="Resource" uid="uid://b8svw8yia0v0" path="res://src/items/resources/apple.tres" id="3_huvu5"]
 [ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="3_yckcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yckcf"]
@@ -16,7 +17,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_yckcf")
 
 [node name="AddItemComponent" parent="." node_paths=PackedStringArray("collectible_component") instance=ExtResource("2_5qehy")]
-item = "Apple"
+item = ExtResource("3_huvu5")
 collectible_component = NodePath("../CollectibleComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

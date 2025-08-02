@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b8gung7ueto8" path="res://src/menus/game_over/game_over_menu.gd" id="1_28fdf"]
 
-[node name="GameOverMenu" type="PanelContainer" node_paths=PackedStringArray("play_again_button", "upgrade_button", "main_menu_button")]
+[node name="GameOverMenu" type="PanelContainer" node_paths=PackedStringArray("play_again_button", "upgrade_button", "main_menu_button", "items_collected_label")]
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,6 +13,7 @@ script = ExtResource("1_28fdf")
 play_again_button = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/PlayAgainButton")
 upgrade_button = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton")
 main_menu_button = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenuButton")
+items_collected_label = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Label3")
 level_scene = "uid://cevc126su5f5q"
 upgrade_scene = "uid://dwumukl8x0xq7"
 main_menu_scene = "uid://bebw44j0d3rob"

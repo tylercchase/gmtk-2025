@@ -50,7 +50,7 @@ func check_closed_loops():
 				temp.remove_at(len(temp)-1)
 			test_polygon_node_2.set_polygon(temp) # white debug shape
 
-			area_collision_shape.shape.set_segments(temp)
+			area_collision_shape.shape.set_points(temp)
 			await Engine.get_main_loop().process_frame
 			await Engine.get_main_loop().process_frame
 			print(area.get_overlapping_areas())

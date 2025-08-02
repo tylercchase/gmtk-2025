@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://dkqfux8jexo4h"]
+
+[ext_resource type="Script" uid="uid://c7olkphosuq1l" path="res://src/items/item_resource.gd" id="1_sijhm"]
+
+[resource]
+script = ExtResource("1_sijhm")
+name = "Orange"
+description = "It tastes like sun and vitamin d."
+metadata/_custom_type_script = "uid://c7olkphosuq1l"

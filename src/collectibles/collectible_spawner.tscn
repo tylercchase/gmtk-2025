@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://m58glpi7hgow"]
+
+[node name="CollectibleSpawner" type="Node2D"]

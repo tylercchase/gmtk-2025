@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cevc126su5f5q"]
+[gd_scene load_steps=20 format=3 uid="uid://cevc126su5f5q"]
 
 [ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="1_wfa51"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_5ipog"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m58glpi7hgow" path="res://src/collectibles/collectible_spawner.tscn" id="5_88en4"]
 [ext_resource type="Script" uid="uid://dv7pqdck0s0oh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="5_tfvns"]
 [ext_resource type="Script" uid="uid://8px07ckfhbj2" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="6_s7h1i"]
+[ext_resource type="Shader" uid="uid://ngknlpfw6on4" path="res://src/level/low_time_vignette.gdshader" id="8_s7h1i"]
 [ext_resource type="Script" uid="uid://cf2oa1hfd3wx7" path="res://src/level/floating_text_manager.gd" id="11_8mdby"]
 [ext_resource type="PackedScene" uid="uid://dqbwkxodatt1t" path="res://src/collectibles/orange/orange.tscn" id="11_tfvns"]
 [ext_resource type="PackedScene" uid="uid://b56qw6dlfr54h" path="res://src/level/floating_text/floating_text.tscn" id="12_hk6v1"]
@@ -41,6 +42,12 @@ ScaleShake = Array[ExtResource("3_8mdby")]([])
 bake_internal = 64
 __follow_timeline = false
 metadata/_custom_type_script = "uid://8px07ckfhbj2"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf263"]
+shader = ExtResource("8_s7h1i")
+shader_parameter/radius = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/effect_color = Color(0.201816, 7.0692e-08, 5.41471e-08, 1)
 
 [node name="TestLevel" type="Node2D"]
 position = Vector2(-3.09944e-06, 1.07288e-05)
@@ -80,6 +87,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+material = SubResource("ShaderMaterial_jf263")
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 658.0
+mouse_filter = 2
+
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 10
@@ -89,9 +103,10 @@ grow_horizontal = 2
 max_value = 1.0
 show_percentage = false
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("progress_bar", "player") instance=ExtResource("4_5ipog")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("progress_bar", "player", "low_time_vignette") instance=ExtResource("4_5ipog")]
 progress_bar = NodePath("../CanvasLayer/Control/ProgressBar")
 player = NodePath("../Player")
+low_time_vignette = NodePath("../CanvasLayer/Control/ColorRect")
 
 [node name="CollectibleSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_88en4")]
 apples = ExtResource("3_88en4")

@@ -4,6 +4,7 @@ extends Node
 @export var progress_bar: ProgressBar
 
 @export var player: Player
+@export var low_time_vignette: ColorRect
 
 var timer: Timer
 
@@ -30,6 +31,7 @@ func _on_timer_timeout():
 
 func _process(_delta: float) -> void:
 	progress_bar.value =  timer.time_left / timer.wait_time
+	low_time_vignette.material.set("shader_parameter/radius", (1.0 - progress_bar.value) * 0.7)
 
 func _on_item_collected(item: Item, node: Node):
 	var modified_amount = State.get_modifiers(item.id, 1)

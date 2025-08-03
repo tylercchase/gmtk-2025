@@ -70,3 +70,4 @@ func _on_button_pressed():
 	update_display()
 	Events.emit_purchased_upgrade()
 	Events.emit_inventory_changed()
+	Events.emit_tooltip_changed(upgrade_resource) # make it so the tooltip updates on purchase

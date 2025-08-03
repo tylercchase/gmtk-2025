@@ -56,7 +56,8 @@ func check_closed_loops():
 			if shake_node:
 				shake_node.play_shake()
 			area_collision_shape.shape.set_points(temp)
-			loop_audio.play()
+			if loop_audio:
+				loop_audio.play()
 			await Engine.get_main_loop().process_frame
 			await Engine.get_main_loop().process_frame
 			for item in area.get_overlapping_areas():

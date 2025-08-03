@@ -12,7 +12,7 @@ func _ready() -> void:
     timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout():
-    rotate(rotation_amount * 3)
+    rotate(rotation_amount * 30)
     timer.start(randf())
 
 

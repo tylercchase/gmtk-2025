@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bebw44j0d3rob"]
+[gd_scene load_steps=7 format=3 uid="uid://bebw44j0d3rob"]
 
 [ext_resource type="Script" uid="uid://kgrio0uti0pb" path="res://src/menus/main/main_menu.gd" id="1_vqa7h"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_87ivk"]
 [ext_resource type="Script" uid="uid://cshxb8qg5nbd8" path="res://src/menus/main/main_menu_player.gd" id="3_153ft"]
 [ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="4_153ft"]
+[ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="5_rsqdp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrvvx"]
 bg_color = Color(0.568528, 0.33687, 0.230283, 1)
@@ -28,6 +29,18 @@ player_node = NodePath("../MainMenuTestPlayer")
 position = Vector2(902, 422)
 script = ExtResource("3_153ft")
 container = NodePath("../HBoxContainer/SnakeZone")
+
+[node name="Sprite2D" parent="MainMenuTestPlayer" index="1"]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-3.8147e-06, -3.8147e-06)
+scale = Vector2(0.492188, 0.492188)
+texture = ExtResource("5_rsqdp")
+
+[node name="CollisionShape2D" parent="MainMenuTestPlayer" index="2"]
+position = Vector2(0, -1)
+
+[node name="AudioStreamPlayer" parent="MainMenuTestPlayer" index="3"]
+volume_db = -80.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

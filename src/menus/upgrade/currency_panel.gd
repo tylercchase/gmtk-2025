@@ -29,6 +29,5 @@ func _on_inventory_changed():
 
 
 func update_text():
-    print(State.inventory)
     if State.inventory.has("apple"):
         currency_label.text = template % State.inventory["apple"]

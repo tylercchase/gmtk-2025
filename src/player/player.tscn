@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkufcjas1iov8"]
+[gd_scene load_steps=7 format=3 uid="uid://bkufcjas1iov8"]
 
 [ext_resource type="Script" uid="uid://dv2mhe6wfcak5" path="res://src/player/player.gd" id="1_rxibo"]
 [ext_resource type="Texture2D" uid="uid://crxvywmut7gbr" path="res://src/player/Worm Face.png" id="2_rxibo"]
+[ext_resource type="AudioStream" uid="uid://c71wl2oyfmht8" path="res://assets/move.wav" id="3_244u8"]
+[ext_resource type="Script" uid="uid://cwdw87u8qu563" path="res://src/player/audio_stream_player.gd" id="4_5f2sf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rxibo"]
 particle_flag_disable_z = true
@@ -39,3 +41,9 @@ texture = ExtResource("2_rxibo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_qnmj6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_244u8")
+volume_db = -19.574
+pitch_scale = 1.15
+script = ExtResource("4_5f2sf")

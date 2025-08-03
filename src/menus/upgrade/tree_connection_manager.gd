@@ -28,7 +28,6 @@ func check_button_enabled(upgrade: Upgrade):
 	return true
 
 func update_button_visibility():
-	print('test')
 	for button in upgrade_buttons.values():
 		var resource = button.upgrade_resource
 		button.visible = check_button_enabled(resource)
@@ -52,8 +51,8 @@ func update_connections():
 			for requirement in requirements:
 				if upgrade_buttons.has(requirement.id):
 					if upgrade_buttons[requirement.id].visible and button.visible:
-						var base_coords = button.global_position + button.get_global_rect().size / 2
-						var dest_coords = upgrade_buttons[requirement.id].global_position + upgrade_buttons[requirement.id].get_global_rect().size / 2
+						var base_coords = button.position + button.get_rect().size / 2
+						var dest_coords = upgrade_buttons[requirement.id].position + upgrade_buttons[requirement.id].get_rect().size / 2
 						if !button.disabled or button.maxed or !button.buyable:
 							draw_line(base_coords, dest_coords, Color.WHITE, 15.0)
 						else:

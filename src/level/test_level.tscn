@@ -8,6 +8,13 @@
 
 [node name="TestLevel" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -52.0
+offset_top = -40.0
+offset_right = 1177.0
+offset_bottom = 678.0
+color = Color(0.493756, 0.197594, 0.43476, 1)
+
 [node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("1_wfa51")]
 player_node = NodePath("../Player")
 

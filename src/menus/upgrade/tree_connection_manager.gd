@@ -28,6 +28,7 @@ func check_button_enabled(upgrade: Upgrade):
 	return true
 
 func update_button_visibility():
+	print('test')
 	for button in upgrade_buttons.values():
 		var resource = button.upgrade_resource
 		button.visible = check_button_enabled(resource)
@@ -38,7 +39,6 @@ func update_button_visibility():
 					button.visible = true
 					button.disabled = true
 					break
-
 
 func _draw() -> void:
 	update_button_visibility()

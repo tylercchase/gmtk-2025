@@ -32,7 +32,7 @@ func get_modifiers(attribute: String, value: Variant) -> Variant:
 
 
 var inventory = {
-    "apple": 0,
+    "apple": 2,
     "oranges": 0
 }
 

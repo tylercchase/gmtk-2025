@@ -45,7 +45,9 @@ func update_display():
 	var current_purchase_price : UpgradeCost = upgrade_resource.purchase_prices[total_purchased]
 	if State.inventory.has(current_purchase_price.resource_id):
 		print(State.inventory[current_purchase_price.resource_id])
-		disabled = State.inventory[current_purchase_price.resource_id] > current_purchase_price.amount
+		print(current_purchase_price.amount)
+		disabled = !State.inventory[current_purchase_price.resource_id] >= current_purchase_price.amount
+		print(disabled)
 		buyable = disabled
 	else:
 		disabled = true
@@ -69,6 +71,6 @@ func _on_button_pressed():
 	var price = upgrade_resource.purchase_prices[State.purchased_upgrades[upgrade_resource.id] - 1]
 	State.inventory[price.resource_id] = clamp(State.inventory[price.resource_id] - price.amount, 0 , INF)
 	print(State.inventory)
-	Events.emit_purchased_upgrade()
 	Events.emit_inventory_changed()
+	Events.emit_purchased_upgrade()
 	update_display()

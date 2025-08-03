@@ -14,6 +14,9 @@ func _ready() -> void:
     play_again_button.pressed.connect(_on_play_again_button_pressed)
     upgrade_button.pressed.connect(_on_upgrade_button_pressed)
     main_menu_button.pressed.connect(_on_main_menu_button_pressed)
+    scale = Vector2(0.0,0.0)
+    var tween = get_tree().create_tween()
+    tween.tween_property(self, "scale", Vector2(1.0,1.0), 0.2)
 
 func load_run_stats(items: Dictionary):
     items_collected_label.text = ""

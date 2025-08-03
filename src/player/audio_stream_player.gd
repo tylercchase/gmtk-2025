@@ -7,6 +7,6 @@ func _ready() -> void:
 
 
 func replay_but_different():
-    pitch_scale = 0.5 + randf()
+    pitch_scale = 0.3 + randf() / 2
     play()
     pass

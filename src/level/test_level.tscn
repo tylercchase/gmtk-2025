@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cevc126su5f5q"]
+[gd_scene load_steps=21 format=3 uid="uid://cevc126su5f5q"]
 
 [ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="1_wfa51"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_5ipog"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cf2oa1hfd3wx7" path="res://src/level/floating_text_manager.gd" id="11_8mdby"]
 [ext_resource type="PackedScene" uid="uid://dqbwkxodatt1t" path="res://src/collectibles/orange/orange.tscn" id="11_tfvns"]
 [ext_resource type="PackedScene" uid="uid://b56qw6dlfr54h" path="res://src/level/floating_text/floating_text.tscn" id="12_hk6v1"]
+[ext_resource type="AudioStream" uid="uid://by02je2ducp5v" path="res://assets/loop.wav" id="15_jf263"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8mdby"]
 
@@ -59,9 +60,10 @@ offset_right = 1177.0
 offset_bottom = 678.0
 color = Color(0.225856, 0.0711628, 0.195372, 1)
 
-[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node", "shake_node") instance=ExtResource("1_wfa51")]
+[node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node", "shake_node", "loop_audio") instance=ExtResource("1_wfa51")]
 player_node = NodePath("../Player")
 shake_node = NodePath("../Camera2D/ShakerComponent2D")
+loop_audio = NodePath("../AudioStreamPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1.78814e-07, 2.38419e-07)
@@ -117,3 +119,7 @@ player = NodePath("../Player")
 z_index = 1
 script = ExtResource("11_8mdby")
 floating_text = ExtResource("12_hk6v1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jf263")
+volume_db = -8.23

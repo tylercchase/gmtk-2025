@@ -44,6 +44,7 @@ shape = SubResource("RectangleShape2D_qnmj6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_244u8")
-volume_db = -19.574
-pitch_scale = 1.15
+volume_db = -23.259
+pitch_scale = 0.4
+autoplay = true
 script = ExtResource("4_5f2sf")

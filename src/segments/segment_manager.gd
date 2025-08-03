@@ -14,6 +14,7 @@ var past_locations = []
 var segments: Array[Node2D] = []
 
 @export var shake_node: ShakerComponent2D
+@export var loop_audio: AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var timer = Timer.new()
@@ -55,6 +56,7 @@ func check_closed_loops():
 			if shake_node:
 				shake_node.play_shake()
 			area_collision_shape.shape.set_points(temp)
+			loop_audio.play()
 			await Engine.get_main_loop().process_frame
 			await Engine.get_main_loop().process_frame
 			for item in area.get_overlapping_areas():

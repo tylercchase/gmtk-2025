@@ -38,12 +38,16 @@ func _on_timer_timeout():
     while true:
         var extent: Rect2 = get_viewport_rect()
         coords = Vector2(randf_range(extent.position.x, extent.end.x), randf_range(extent.position.y, extent.end.y))
+        var passed = true
         if coords.distance_to(player.global_position) > 20:
             for previous in all_spawned_nodes:
-                if coords.distance_to(previous.global_position) > 20:
+                if previous == null:
+                    continue
+                elif coords.distance_to(previous.global_position) < 20:
+                    passed = false
                     break
-        
-        break
+        if passed:
+            break
     temp_node.global_position = coords
 
 

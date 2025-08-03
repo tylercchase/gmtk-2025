@@ -9,16 +9,7 @@
 _data = [Vector2(0, 0.390909), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-<<<<<<< Updated upstream
-[sub_resource type="Gradient" id="Gradient_i10sa"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.48)
-colors = PackedColorArray(0.917824, 0.23458, 1.92523e-07, 1, 0.684128, 0.0659657, 0.130093, 1)
-
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_f8jwr"]
-=======
-[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_i10sa"]
->>>>>>> Stashed changes
 
 [node name="SegmentManager" type="Node2D" node_paths=PackedStringArray("trail_line", "test_polygon_node_2", "area_collision_shape", "area")]
 script = ExtResource("1_f8jwr")
@@ -32,19 +23,12 @@ area = NodePath("Area2D")
 z_index = 1
 width = 59.7
 width_curve = SubResource("Curve_i10sa")
-<<<<<<< Updated upstream
-gradient = SubResource("Gradient_i10sa")
-texture_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 1
-=======
 gradient = ExtResource("3_6b5f6")
 texture = ExtResource("3_i10sa")
 texture_mode = 1
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
->>>>>>> Stashed changes
 
 [node name="ResultPolygon2D" type="Polygon2D" parent="."]
 

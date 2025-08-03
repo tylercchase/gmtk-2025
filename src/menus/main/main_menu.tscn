@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrvvx"]
 bg_color = Color(0.568528, 0.33687, 0.230283, 1)
 
-[node name="MainMenu" type="PanelContainer" node_paths=PackedStringArray("start_button", "quit_button")]
+[node name="MainMenu" type="PanelContainer" node_paths=PackedStringArray("start_button", "upgrade_button", "quit_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,8 +16,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vqa7h")
 start_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton")
+upgrade_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradesButton")
 quit_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton")
 level_scene = "uid://cevc126su5f5q"
+upgrade_scene = "uid://dwumukl8x0xq7"
 
 [node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node") instance=ExtResource("4_153ft")]
 player_node = NodePath("../MainMenuTestPlayer")
@@ -58,6 +60,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 36
 text = "Start"
+
+[node name="UpgradesButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Upgrades"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -5,7 +5,7 @@ extends Resource
 @export_multiline var description: String # some way of filling in the description later
 @export var id: String
 
-@export var purchase_prices: Array[int] # maybe needs a resource here for different types of currencies?? or an enum
+@export var purchase_prices: Array[UpgradeCost] # maybe needs a resource here for different types of currencies?? or an enum
 # also acts as a max-level count by the amount of purchase prices listed
 
 

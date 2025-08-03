@@ -28,11 +28,10 @@ func check_button_enabled(upgrade: Upgrade):
 	return true
 
 func update_button_visibility():
+	print('test')
 	for button in upgrade_buttons.values():
 		var resource = button.upgrade_resource
 		button.visible = check_button_enabled(resource)
-		if !button.maxed:
-			button.disabled = false
 	for button in upgrade_buttons.values():
 		if !button.visible:
 			for requirement in button.upgrade_resource.requirements:
@@ -41,11 +40,9 @@ func update_button_visibility():
 					button.disabled = true
 					break
 
-
 func _draw() -> void:
 	update_button_visibility()
 	update_connections()
-
 
 func update_connections():
 	for button in upgrade_buttons.values():
@@ -57,7 +54,7 @@ func update_connections():
 					if upgrade_buttons[requirement.id].visible and button.visible:
 						var base_coords = button.global_position + button.get_global_rect().size / 2
 						var dest_coords = upgrade_buttons[requirement.id].global_position + upgrade_buttons[requirement.id].get_global_rect().size / 2
-						if !button.disabled or button.maxed:
+						if !button.disabled or button.maxed or !button.buyable:
 							draw_line(base_coords, dest_coords, Color.WHITE, 15.0)
 						else:
 							draw_dashed_line(base_coords, dest_coords, Color.WHITE, 15.0, 20.0)

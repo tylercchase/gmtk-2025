@@ -44,7 +44,6 @@ func check_closed_loops():
 		)
 
 		if intersection != null:
-			print("Loop closure detected!")
 			var temp = points_array.slice(i)
 			if len(temp) % 2:
 				temp.remove_at(len(temp)-1)
@@ -53,7 +52,6 @@ func check_closed_loops():
 			area_collision_shape.shape.set_points(temp)
 			await Engine.get_main_loop().process_frame
 			await Engine.get_main_loop().process_frame
-			print(area.get_overlapping_areas())
 			for item in area.get_overlapping_areas():
 				if item.has_method("on_interact"):
 					item.on_interact()

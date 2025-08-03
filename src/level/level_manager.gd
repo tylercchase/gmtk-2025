@@ -23,21 +23,17 @@ func _ready() -> void:
 func _on_timer_timeout():
 	var game_over_node = game_over_scene.instantiate()
 	add_child(game_over_node)
-	player.process_mode = Node.PROCESS_MODE_DISABLED
+	game_over_node.process_mode = Node.PROCESS_MODE_ALWAYS
+	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 	game_over_node.load_run_stats(current_run_items)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress_bar.value =  timer.time_left / timer.wait_time
 
 func _on_item_collected(item: Item):
-	var modified_amount = 1
-	if State.resource_modifiers_add.has(item.name):
-		modified_amount += State.resource_modifiers_add[item.name]
-	if State.resource_modifiers_multiply.has(item.name):
-		modified_amount *= State.resource_modifiers_multiply[item.name]
-	if current_run_items.has(item.name):
-		current_run_items[item.name] += modified_amount
+	var modified_amount = State.get_modifiers(item.id, 1)
+	if current_run_items.has(item.id):
+		current_run_items[item.id] += modified_amount
 	else:
-		current_run_items[item.name] = modified_amount
-	print(current_run_items)
+		current_run_items[item.id] = modified_amount

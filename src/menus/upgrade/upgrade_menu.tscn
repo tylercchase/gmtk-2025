@@ -31,18 +31,18 @@ offset_bottom = 103.0
 upgrade_resource = ExtResource("3_m5u62")
 
 [node name="Button2" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
-offset_left = -428.0
-offset_top = -316.0
-offset_right = -292.0
-offset_bottom = -180.0
+offset_left = -480.71
+offset_top = -209.666
+offset_right = -344.71
+offset_bottom = -73.6659
 upgrade_resource = ExtResource("5_53qew")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button3" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
-offset_left = 286.0
-offset_top = -225.0
-offset_right = 422.0
-offset_bottom = -89.0
+offset_left = -870.449
+offset_top = -398.206
+offset_right = -734.449
+offset_bottom = -262.206
 upgrade_resource = ExtResource("6_t3hjq")
 metadata/_edit_use_anchors_ = true
 

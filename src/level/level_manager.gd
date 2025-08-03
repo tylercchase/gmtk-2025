@@ -31,11 +31,7 @@ func _process(_delta: float) -> void:
 	progress_bar.value =  timer.time_left / timer.wait_time
 
 func _on_item_collected(item: Item):
-	var modified_amount = 1
-	if State.resource_modifiers_add.has(item.id):
-		modified_amount += State.resource_modifiers_add[item.id]
-	if State.resource_modifiers_multiply.has(item.id):
-		modified_amount *= State.resource_modifiers_multiply[item.id]
+	var modified_amount = State.get_modifiers(item.id, 1)
 	if current_run_items.has(item.id):
 		current_run_items[item.id] += modified_amount
 	else:

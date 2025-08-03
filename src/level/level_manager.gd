@@ -37,4 +37,3 @@ func _on_item_collected(item: Item):
 		current_run_items[item.id] += modified_amount
 	else:
 		current_run_items[item.id] = modified_amount
-	print(current_run_items)

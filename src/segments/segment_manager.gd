@@ -13,6 +13,7 @@ var number_of_segments = 50
 var past_locations = []
 var segments: Array[Node2D] = []
 
+@export var shake_node: ShakerComponent2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var timer = Timer.new()
@@ -51,7 +52,8 @@ func check_closed_loops():
 			test_polygon_node_2.color = Color("1f1f1f66")
 			var tween = get_tree().create_tween()
 			tween.tween_property(test_polygon_node_2, "color", Color("1f1f1f00"), 0.5)
-
+			if shake_node:
+				shake_node.play_shake()
 			area_collision_shape.shape.set_points(temp)
 			await Engine.get_main_loop().process_frame
 			await Engine.get_main_loop().process_frame

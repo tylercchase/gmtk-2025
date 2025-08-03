@@ -19,10 +19,11 @@ config/icon="res://icon.svg"
 
 State="*res://src/singletons/state.gd"
 Events="*res://src/singletons/events.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 
 [input]
 

@@ -17,7 +17,7 @@ func _input(event):
 			dragging = false
 	elif event is InputEventMouseMotion and dragging:
 		position =  (mouse_start_pos - event.position) + screen_start_position
-	elif event.is_action("scroll_up"):
+	if event.is_action("scroll_up"):
 		test.scale *= 1.1
 	elif event.is_action("scroll_down"):
 		test.scale *= 0.9

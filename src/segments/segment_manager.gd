@@ -47,7 +47,7 @@ func check_closed_loops():
 			var temp = points_array.slice(i)
 			if len(temp) % 2:
 				temp.remove_at(len(temp)-1)
-			test_polygon_node_2.set_polygon(temp) # white debug shape
+			# test_polygon_node_2.set_polygon(temp) # white debug shape
 
 			area_collision_shape.shape.set_points(temp)
 			await Engine.get_main_loop().process_frame

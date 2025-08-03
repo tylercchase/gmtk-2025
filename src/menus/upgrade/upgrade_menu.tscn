@@ -11,6 +11,7 @@
 
 [node name="UpgradeMenu" type="Node2D"]
 rotation = -0.00138479
+metadata/_edit_horizontal_guides_ = [-116.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-76, -89)

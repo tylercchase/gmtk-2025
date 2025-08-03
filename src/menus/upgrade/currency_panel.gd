@@ -8,6 +8,11 @@ var template = ""
 func _ready() -> void:
     template = currency_label.text
     update_text()
+    Events.inventory_changed.connect(_on_inventory_changed)
+
+
+func _on_inventory_changed():
+    update_text()
 
 
 func update_text():

@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="StatUpgrade" load_steps=4 format=3 uid="uid://bn0mnlfx3utoo"]
+[gd_resource type="Resource" script_class="StatUpgrade" load_steps=6 format=3 uid="uid://bn0mnlfx3utoo"]
 
 [ext_resource type="Script" uid="uid://ps2c8mb4abcu" path="res://src/upgrades/upgrade_requirement.gd" id="1_1ccju"]
+[ext_resource type="Script" uid="uid://bh0i4o5m8oh7a" path="res://src/upgrades/upgrade_cost.gd" id="1_mop8b"]
 [ext_resource type="Script" uid="uid://bnner40wkr4wm" path="res://src/upgrades/upgrades/stat_upgrade.gd" id="2_mop8b"]
+
+[sub_resource type="Resource" id="Resource_mop8b"]
+script = ExtResource("1_mop8b")
+resource_id = "apple"
+amount = 5
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
 
 [sub_resource type="Resource" id="Resource_1ccju"]
 script = ExtResource("1_1ccju")
@@ -11,12 +18,12 @@ metadata/_custom_type_script = "uid://ps2c8mb4abcu"
 
 [resource]
 script = ExtResource("2_mop8b")
-stat = 0
-amount = 1.1
-type = 2
+stat_key = "speed"
+type = 1
+value = 1.1
 name = "Faster Speed"
 description = "Upgrades snake speed by 10%"
 id = "speed-2"
-purchase_prices = Array[int]([5])
+purchase_prices = Array[ExtResource("1_mop8b")]([SubResource("Resource_mop8b")])
 requirements = Array[ExtResource("1_1ccju")]([SubResource("Resource_1ccju")])
 metadata/_custom_type_script = "uid://bnner40wkr4wm"

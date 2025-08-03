@@ -13,24 +13,27 @@
 rotation = -0.00138479
 metadata/_edit_horizontal_guides_ = [-116.0]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("test")]
 position = Vector2(-76, -89)
 script = ExtResource("1_5gbj0")
+test = NodePath("../Node2D")
 
-[node name="ConnectionManager" type="Node2D" parent="." node_paths=PackedStringArray("upgrade_container")]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ConnectionManager" type="Node2D" parent="Node2D" node_paths=PackedStringArray("upgrade_container")]
 script = ExtResource("2_siov3")
 upgrade_container = NodePath("../UpgradeContainer")
 
-[node name="UpgradeContainer" type="Node2D" parent="."]
+[node name="UpgradeContainer" type="Node2D" parent="Node2D"]
 
-[node name="Button" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
+[node name="Button" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = -149.0
 offset_top = -33.0
 offset_right = -13.0
 offset_bottom = 103.0
 upgrade_resource = ExtResource("3_m5u62")
 
-[node name="Button2" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
+[node name="Button2" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = -480.71
 offset_top = -209.666
 offset_right = -344.71
@@ -38,7 +41,7 @@ offset_bottom = -73.6659
 upgrade_resource = ExtResource("5_53qew")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button3" parent="UpgradeContainer" instance=ExtResource("2_5gbj0")]
+[node name="Button3" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = -870.449
 offset_top = -398.206
 offset_right = -734.449

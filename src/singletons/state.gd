@@ -32,8 +32,8 @@ func get_modifiers(attribute: String, value: Variant) -> Variant:
 
 
 var inventory = {
-    "apple": 100000,
-    "orange": 10000
+    "apple": 0,
+    "orange": 0
 }
 
 ### seconds 'till a new thing spawn

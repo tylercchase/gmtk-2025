@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="StatUpgrade" load_steps=8 format=3 uid="uid://m66bq8g8dp48"]
+
+[ext_resource type="Script" uid="uid://bh0i4o5m8oh7a" path="res://src/upgrades/upgrade_cost.gd" id="1_efnul"]
+[ext_resource type="Script" uid="uid://ps2c8mb4abcu" path="res://src/upgrades/upgrade_requirement.gd" id="2_qfe5f"]
+[ext_resource type="Script" uid="uid://bnner40wkr4wm" path="res://src/upgrades/upgrades/stat_upgrade.gd" id="3_1s5cv"]
+
+[sub_resource type="Resource" id="Resource_efnul"]
+script = ExtResource("1_efnul")
+resource_id = "apple"
+amount = 10
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_qfe5f"]
+script = ExtResource("1_efnul")
+resource_id = "apple"
+amount = 50
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_1s5cv"]
+script = ExtResource("1_efnul")
+resource_id = "orange"
+amount = 10
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_6bxpf"]
+script = ExtResource("1_efnul")
+resource_id = "orange"
+amount = 50
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[resource]
+script = ExtResource("3_1s5cv")
+stat_key = "round-time"
+type = 0
+value = 5.0
+name = "Round Time"
+description = "Adds 5 seconds to the total round time"
+id = "round-time-1"
+purchase_prices = Array[ExtResource("1_efnul")]([SubResource("Resource_efnul"), SubResource("Resource_qfe5f"), SubResource("Resource_1s5cv"), SubResource("Resource_6bxpf")])
+requirements = Array[ExtResource("2_qfe5f")]([])
+metadata/_custom_type_script = "uid://bnner40wkr4wm"

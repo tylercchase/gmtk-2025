@@ -21,7 +21,6 @@ func _ready() -> void:
 	Events.inventory_changed.connect(_on_inventory_changed)
 
 func _on_inventory_changed():
-	print("inventory_changed !!!")
 	update_display()
 
 
@@ -41,20 +40,16 @@ func update_display():
 	else:
 		purchased_amount_label.text = str(0) + "/" +str(max_upgrade_count)
 	if !visible or len(upgrade_resource.purchase_prices) == 0 or total_purchased >= len(upgrade_resource.purchase_prices): 
-		print('ah')
 		return
 	# update if we can actually purchase something
 
 	var current_purchase_price : UpgradeCost = upgrade_resource.purchase_prices[total_purchased]
 	if State.inventory.has(current_purchase_price.resource_id):
 		disabled = !State.inventory[current_purchase_price.resource_id] >= current_purchase_price.amount
-		print(current_purchase_price.amount)
-		print(disabled)
 		buyable = disabled
 	else:
 		disabled = true
 	# as well as update icon
-	
 # need to have some logic here for listening to currency updates and enabling/disabling the button press
 
 func _on_mouse_entered():

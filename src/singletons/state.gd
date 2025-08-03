@@ -11,9 +11,8 @@ var purchased_upgrades = {
 
 
 var modifiers_add = {
-    "apple": 1,
+    "apple": 0,
     "speed": 0
-
 }
 
 var modifiers_multiply = {

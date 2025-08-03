@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bebw44j0d3rob"]
+[gd_scene load_steps=17 format=3 uid="uid://bebw44j0d3rob"]
 
 [ext_resource type="Script" uid="uid://kgrio0uti0pb" path="res://src/menus/main/main_menu.gd" id="1_vqa7h"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_87ivk"]
@@ -10,6 +10,13 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrvvx"]
 bg_color = Color(0.568528, 0.33687, 0.230283, 1)
+skew = Vector2(-0.14, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwrk1"]
+bg_color = Color(0.568627, 0.337255, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1l6x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbfwp"]
 content_margin_left = 10.0
@@ -65,9 +72,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vqa7h")
-start_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton")
-upgrade_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradesButton")
-quit_button = NodePath("HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton")
+start_button = NodePath("HBoxContainer/PanelContainer/VBoxContainer/StartButton")
+upgrade_button = NodePath("HBoxContainer/PanelContainer/VBoxContainer/UpgradesButton")
+quit_button = NodePath("HBoxContainer/PanelContainer/VBoxContainer/QuitButton")
 level_scene = "uid://cevc126su5f5q"
 upgrade_scene = "uid://dwumukl8x0xq7"
 
@@ -98,25 +105,26 @@ custom_minimum_size = Vector2(470.905, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nrvvx")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+[node name="Panel" type="Panel" parent="HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwrk1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxFlat_s1l6x")
 text = "WORM LOOP"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="HBoxContainer/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -126,7 +134,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_juxiq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_juxiq")
 text = "Start"
 
-[node name="ShakerComponent" type="Node" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton"]
+[node name="ShakerComponent" type="Node" parent="HBoxContainer/PanelContainer/VBoxContainer/StartButton"]
 script = ExtResource("5_juxiq")
 custom_target = true
 AutoPlay = true
@@ -134,7 +142,7 @@ duration = 1.0
 shakerProperty = Array[ExtResource("6_dbfwp")]([SubResource("Resource_33h7v")])
 metadata/_custom_type_script = "uid://csy14dm42mv3y"
 
-[node name="UpgradesButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="UpgradesButton" type="Button" parent="HBoxContainer/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -144,11 +152,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_juxiq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_juxiq")
 text = "Upgrades"
 
-[node name="QuitButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="HBoxContainer/PanelContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="SnakeZone" type="Control" parent="HBoxContainer"]
 layout_mode = 2

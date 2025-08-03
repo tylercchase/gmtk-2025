@@ -25,7 +25,7 @@ func _ready() -> void:
 # Used to create a new player node in global position after the timer runs out each time.
 func _on_timer_timeout():
 	trail_line.add_point(player_node.global_position)
-	if len(trail_line.points) > number_of_segments:
+	if len(trail_line.points) > State.get_modifers("worm-length", number_of_segments):
 		trail_line.remove_point(0)
 	if len(trail_line.points) > 0:
 		check_closed_loops()

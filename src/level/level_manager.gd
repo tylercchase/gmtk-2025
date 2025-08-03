@@ -23,7 +23,8 @@ func _ready() -> void:
 func _on_timer_timeout():
 	var game_over_node = game_over_scene.instantiate()
 	add_child(game_over_node)
-	player.process_mode = Node.PROCESS_MODE_DISABLED
+	game_over_node.process_mode = Node.PROCESS_MODE_ALWAYS
+	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 	game_over_node.load_run_stats(current_run_items)
 
 

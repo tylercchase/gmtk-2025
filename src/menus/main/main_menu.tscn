@@ -81,6 +81,7 @@ theme_override_font_sizes/font_size = 32
 text = "Upgrades"
 
 [node name="QuitButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"

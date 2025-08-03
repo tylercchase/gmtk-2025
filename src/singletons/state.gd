@@ -11,25 +11,29 @@ var purchased_upgrades = {
 
 
 var modifiers_add = {
-    "apple": 1
+    "apple": 1,
+    "speed": 0
+
 }
 
 var modifiers_multiply = {
-    "apple": 1
+    "apple": 1,
+    "speed": 1,
 }
 
 
 func get_modifiers(attribute: String, value: Variant) -> Variant:
     var temp = value
     if modifiers_add.has(attribute):
-        temp += value
+        temp += modifiers_add[attribute]
     if modifiers_multiply.has(attribute):
-        temp *= value
+        temp *= modifiers_multiply[attribute]
     return temp
 
 
 var inventory = {
-    "apple": 2
+    "apple": 0,
+    "oranges": 0
 }
 
 ### seconds 'till a new thing spawn

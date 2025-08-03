@@ -22,9 +22,9 @@ func update_info(upgrade: Upgrade):
     var current_purchase_price : UpgradeCost = upgrade.purchase_prices[total_purchased]
     cost_label.text = "Costs:"
     if current_purchase_price.resource_id == "apple":
-        cost_label.text += "\n [color=red]Apple[/color]" + str(current_purchase_price.amount)
+        cost_label.text += "\n [color=red]Apple[/color]: " + str(current_purchase_price.amount)
     elif current_purchase_price.resource_id == "orange":
-        cost_label.text += "\n [color=orange]Orange[/color]" + str(current_purchase_price.amount)
+        cost_label.text += "\n [color=orange]Orange[/color]:" + str(current_purchase_price.amount)
 
 
 

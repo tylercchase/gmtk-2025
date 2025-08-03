@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cevc126su5f5q"]
+[gd_scene load_steps=17 format=3 uid="uid://cevc126su5f5q"]
 
 [ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="1_wfa51"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_5ipog"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://m58glpi7hgow" path="res://src/collectibles/collectible_spawner.tscn" id="5_88en4"]
 [ext_resource type="Script" uid="uid://dv7pqdck0s0oh" path="res://addons/shaker/data/Single/BaseShakerType1D.gd" id="5_tfvns"]
 [ext_resource type="Script" uid="uid://8px07ckfhbj2" path="res://addons/shaker/data/Vector2/ShakerPreset2D.gd" id="6_s7h1i"]
+[ext_resource type="Script" uid="uid://cf2oa1hfd3wx7" path="res://src/level/floating_text_manager.gd" id="11_8mdby"]
+[ext_resource type="PackedScene" uid="uid://b56qw6dlfr54h" path="res://src/level/floating_text/floating_text.tscn" id="12_hk6v1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8mdby"]
 
@@ -47,7 +49,7 @@ offset_left = -52.0
 offset_top = -40.0
 offset_right = 1177.0
 offset_bottom = 678.0
-color = Color(0.493756, 0.197594, 0.43476, 1)
+color = Color(0.225856, 0.0711628, 0.195372, 1)
 
 [node name="SegmentManager" parent="." node_paths=PackedStringArray("player_node", "shake_node") instance=ExtResource("1_wfa51")]
 player_node = NodePath("../Player")
@@ -93,3 +95,8 @@ player = NodePath("../Player")
 [node name="CollectibleSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_88en4")]
 apples = ExtResource("3_88en4")
 player = NodePath("../Player")
+
+[node name="FloatingTextManager" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("11_8mdby")
+floating_text = ExtResource("12_hk6v1")

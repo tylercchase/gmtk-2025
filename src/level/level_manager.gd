@@ -31,9 +31,10 @@ func _on_timer_timeout():
 func _process(_delta: float) -> void:
 	progress_bar.value =  timer.time_left / timer.wait_time
 
-func _on_item_collected(item: Item):
+func _on_item_collected(item: Item, node: Node):
 	var modified_amount = State.get_modifiers(item.id, 1)
 	if current_run_items.has(item.id):
 		current_run_items[item.id] += modified_amount
 	else:
 		current_run_items[item.id] = modified_amount
+	Events.emit_float_text("+" + str(modified_amount) + " " + item.name, node.global_position)

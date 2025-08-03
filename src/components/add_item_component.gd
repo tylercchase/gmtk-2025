@@ -12,4 +12,4 @@ func _on_collectible_collected():
 
 
 func add_item():
-    Events.emit_item_collected(item)
+    Events.emit_item_collected(item, self)

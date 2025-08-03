@@ -22,7 +22,7 @@ stat_key = "speed"
 type = 1
 value = 1.1
 name = "Faster Speed"
-description = "Upgrades snake speed by 10%"
+description = "Upgrades snake [color=slate_blue]speed[/color] by [rainbow speed=0.2]10%[/rainbow]"
 id = "speed-2"
 purchase_prices = Array[ExtResource("1_mop8b")]([SubResource("Resource_mop8b")])
 requirements = Array[ExtResource("1_1ccju")]([SubResource("Resource_1ccju")])

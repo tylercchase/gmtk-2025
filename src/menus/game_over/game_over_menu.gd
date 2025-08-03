@@ -19,7 +19,7 @@ func load_run_stats(items: Dictionary):
     items_collected_label.text = ""
     # do some sorting/filtering here for only the pieces that matter
     for item in items.keys():
-        items_collected_label.text += str(items[item]) + "x " + item
+        items_collected_label.text += str(items[item]) + "x " + item + "\n"
         if State.inventory.has(item):
             State.inventory[item] += items[item]
         else:

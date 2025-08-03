@@ -30,4 +30,4 @@ func _on_inventory_changed():
 
 func update_text():
     if State.inventory.has("apple"):
-        currency_label.text = template % State.inventory["apple"]
+        currency_label.text = template % [State.inventory["apple"], State.inventory["orange"]]

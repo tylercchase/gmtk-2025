@@ -24,11 +24,11 @@ var timer: Timer
 func _ready() -> void:
     timer = Timer.new()
     add_child(timer)
-    timer.start(State.spawn_tick_rate)
+    timer.start(State.get_modifiers("spawn-rate", State.spawn_tick_rate))
     timer.timeout.connect(_on_timer_timeout)
 
 func _on_timer_timeout():
-    if randf() > State.spawn_chance:
+    if randf() > State.get_modifiers("spawn-chance", State.spawn_chance):
         return
     var scene = get_item_to_spawn()
     var temp_node = scene.instantiate()

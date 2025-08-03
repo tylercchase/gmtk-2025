@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqbwkxodatt1t"]
+
+[ext_resource type="PackedScene" uid="uid://c61yeh5367kks" path="res://src/components/collectible_component.tscn" id="1_up3y6"]
+[ext_resource type="PackedScene" uid="uid://bh4ecelxxdhfb" path="res://src/components/add_item_component.tscn" id="2_1xohw"]
+[ext_resource type="Resource" uid="uid://dkqfux8jexo4h" path="res://src/items/resources/orange.tres" id="3_up3y6"]
+[ext_resource type="Texture2D" uid="uid://c4ognco137512" path="res://src/collectibles/orange/Orange.png" id="4_up3y6"]
+[ext_resource type="Script" uid="uid://k4imlx0ki8fu" path="res://src/components/collected_animation_component.gd" id="5_6ko87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab87v"]
+size = Vector2(55, 64)
+
+[sub_resource type="Animation" id="Animation_x2gof"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_r8ae7"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.29, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.240855, -0.282743]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.32, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.585, 0.585), Vector2(0.23, 0.23)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.633333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcvbx"]
+_data = {
+&"RESET": SubResource("Animation_x2gof"),
+&"default": SubResource("Animation_r8ae7")
+}
+
+[node name="Orange" type="Node2D"]
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("1_up3y6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_ab87v")
+
+[node name="AddItemComponent" parent="." node_paths=PackedStringArray("collectible_component") instance=ExtResource("2_1xohw")]
+item = ExtResource("3_up3y6")
+collectible_component = NodePath("../CollectibleComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.245036, 0.189754, 1)
+texture = ExtResource("4_up3y6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." node_paths=PackedStringArray("collectible_component")]
+libraries = {
+&"": SubResource("AnimationLibrary_wcvbx")
+}
+script = ExtResource("5_6ko87")
+collectible_component = NodePath("../CollectibleComponent")

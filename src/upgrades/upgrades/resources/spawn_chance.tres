@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="StatUpgrade" load_steps=7 format=3 uid="uid://yduv4lmdqsab"]
+
+[ext_resource type="Script" uid="uid://bh0i4o5m8oh7a" path="res://src/upgrades/upgrade_cost.gd" id="1_ptqmy"]
+[ext_resource type="Script" uid="uid://ps2c8mb4abcu" path="res://src/upgrades/upgrade_requirement.gd" id="2_jd1yo"]
+[ext_resource type="Script" uid="uid://bnner40wkr4wm" path="res://src/upgrades/upgrades/stat_upgrade.gd" id="3_ptqmy"]
+
+[sub_resource type="Resource" id="Resource_ptqmy"]
+script = ExtResource("1_ptqmy")
+resource_id = "apple"
+amount = 30
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_jd1yo"]
+script = ExtResource("1_ptqmy")
+resource_id = "orange"
+amount = 20
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_guflh"]
+script = ExtResource("2_jd1yo")
+id = "spawn-rate-1"
+level = 1
+metadata/_custom_type_script = "uid://ps2c8mb4abcu"
+
+[resource]
+script = ExtResource("3_ptqmy")
+stat_key = "spawn-chance"
+type = 1
+value = 1.1
+name = "Spawn Chance"
+description = "Increases the chance something spawns every spawn tick by 10%."
+id = "spawn-chance-1"
+purchase_prices = Array[ExtResource("1_ptqmy")]([SubResource("Resource_ptqmy"), SubResource("Resource_jd1yo")])
+requirements = Array[ExtResource("2_jd1yo")]([SubResource("Resource_guflh")])
+metadata/_custom_type_script = "uid://bnner40wkr4wm"

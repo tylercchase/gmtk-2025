@@ -21,4 +21,4 @@ func on_buy_level():
         if State.modifiers_add.has(stat_key):
             State.modifiers_add[stat_key] += value
         else:
-            State.modifiers_add[stat_key] += value
+            State.modifiers_add[stat_key] = value

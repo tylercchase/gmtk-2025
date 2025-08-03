@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bebw44j0d3rob"]
+[gd_scene load_steps=6 format=3 uid="uid://bebw44j0d3rob"]
 
 [ext_resource type="Script" uid="uid://kgrio0uti0pb" path="res://src/menus/main/main_menu.gd" id="1_vqa7h"]
 [ext_resource type="PackedScene" uid="uid://bkufcjas1iov8" path="res://src/player/player.tscn" id="2_87ivk"]
 [ext_resource type="Script" uid="uid://cshxb8qg5nbd8" path="res://src/menus/main/main_menu_player.gd" id="3_153ft"]
 [ext_resource type="PackedScene" uid="uid://6ppqphm8w01t" path="res://src/segments/segment_manager.tscn" id="4_153ft"]
-[ext_resource type="Texture2D" uid="uid://ofhq8wn1748o" path="res://icon.svg" id="5_rsqdp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrvvx"]
 bg_color = Color(0.568528, 0.33687, 0.230283, 1)
@@ -34,7 +33,6 @@ container = NodePath("../HBoxContainer/SnakeZone")
 modulate = Color(1, 1, 1, 1)
 position = Vector2(-3.8147e-06, -3.8147e-06)
 scale = Vector2(0.492188, 0.492188)
-texture = ExtResource("5_rsqdp")
 
 [node name="CollisionShape2D" parent="MainMenuTestPlayer" index="2"]
 position = Vector2(0, -1)
@@ -65,7 +63,7 @@ alignment = 1
 [node name="Label" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 66
-text = "SNAKE GAME"
+text = "WORM GAME"
 horizontal_alignment = 1
 
 [node name="StartButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]

@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="SpawnChanceUpgrade" load_steps=9 format=3 uid="uid://bos4fyi68tma0"]
+
+[ext_resource type="Script" uid="uid://bh0i4o5m8oh7a" path="res://src/upgrades/upgrade_cost.gd" id="1_eaoto"]
+[ext_resource type="Script" uid="uid://ps2c8mb4abcu" path="res://src/upgrades/upgrade_requirement.gd" id="2_a85p3"]
+[ext_resource type="Script" uid="uid://56ui3vamewv" path="res://src/upgrades/upgrades/spawn_chance_upgrade.gd" id="3_onyca"]
+
+[sub_resource type="Resource" id="Resource_eaoto"]
+script = ExtResource("1_eaoto")
+resource_id = "apple"
+amount = 20
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_a85p3"]
+script = ExtResource("1_eaoto")
+resource_id = "apple"
+amount = 50
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_onyca"]
+script = ExtResource("1_eaoto")
+resource_id = "orange"
+amount = 5
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_l50de"]
+script = ExtResource("1_eaoto")
+resource_id = "orange"
+amount = 15
+metadata/_custom_type_script = "uid://bh0i4o5m8oh7a"
+
+[sub_resource type="Resource" id="Resource_16mvk"]
+script = ExtResource("2_a85p3")
+id = "spawn-rate-1"
+level = 1
+metadata/_custom_type_script = "uid://ps2c8mb4abcu"
+
+[resource]
+script = ExtResource("3_onyca")
+name = "Orange Spawnrate"
+description = "Increases the rate that oranges spawn. (or makes them available to spawn)"
+id = "orange-spawn"
+purchase_prices = Array[ExtResource("1_eaoto")]([SubResource("Resource_eaoto"), SubResource("Resource_a85p3"), SubResource("Resource_onyca"), SubResource("Resource_l50de")])
+requirements = Array[ExtResource("2_a85p3")]([SubResource("Resource_16mvk")])
+metadata/_custom_type_script = "uid://56ui3vamewv"

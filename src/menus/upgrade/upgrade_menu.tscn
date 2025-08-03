@@ -1,15 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwumukl8x0xq7"]
+[gd_scene load_steps=23 format=3 uid="uid://dwumukl8x0xq7"]
 
 [ext_resource type="Script" uid="uid://hso657cchuqb" path="res://src/menus/upgrade/tree_camera.gd" id="1_5gbj0"]
 [ext_resource type="PackedScene" uid="uid://b2e3cqoh7f5l1" path="res://src/menus/upgrade/upgrade_button.tscn" id="2_5gbj0"]
 [ext_resource type="Script" uid="uid://cjb2acqy31vy6" path="res://src/menus/upgrade/tree_connection_manager.gd" id="2_siov3"]
 [ext_resource type="Resource" uid="uid://4pqkh6ahfar4" path="res://src/upgrades/upgrades/resources/basic_speed.tres" id="3_m5u62"]
+[ext_resource type="Texture2D" uid="uid://btfceeu16s21q" path="res://src/upgrades/upgrades/icons/Faster_Speed_Tail.png" id="4_why3x"]
 [ext_resource type="Resource" uid="uid://bn0mnlfx3utoo" path="res://src/upgrades/upgrades/resources/speed_2.tres" id="5_53qew"]
 [ext_resource type="PackedScene" uid="uid://dhisaf2mh2g72" path="res://src/menus/tooltip/upgrade_tooltip.tscn" id="5_siov3"]
 [ext_resource type="Resource" uid="uid://ch3fa657jofdw" path="res://src/upgrades/upgrades/resources/speed_3.tres" id="6_t3hjq"]
+[ext_resource type="Resource" uid="uid://cae14hytfs5hi" path="res://src/upgrades/upgrades/resources/spawn_rate.tres" id="7_glu6q"]
+[ext_resource type="Texture2D" uid="uid://ch4e1aj53jxu3" path="res://src/upgrades/upgrades/icons/Open_World_Upgrade.png" id="7_hv3dt"]
+[ext_resource type="Resource" uid="uid://yduv4lmdqsab" path="res://src/upgrades/upgrades/resources/spawn_chance.tres" id="8_55ftc"]
+[ext_resource type="Resource" uid="uid://bos4fyi68tma0" path="res://src/upgrades/upgrades/resources/orange_spawnrate.tres" id="8_jl7t6"]
+[ext_resource type="Texture2D" uid="uid://h6tr4faeuwy2" path="res://src/upgrades/upgrades/icons/Spwan_Rate_Up.png" id="8_ohrhp"]
 [ext_resource type="Script" uid="uid://bcaklunve0aa2" path="res://src/menus/upgrade/currency_panel.gd" id="8_t3hjq"]
+[ext_resource type="Resource" uid="uid://4v0ukfv2uc6r" path="res://src/upgrades/upgrades/resources/worm_length.tres" id="9_nv4kv"]
 [ext_resource type="AudioStream" uid="uid://c8s87b7wixjh7" path="res://assets/upgrade_buy.wav" id="9_vyefe"]
 [ext_resource type="Script" uid="uid://clrrh7rigyvnb" path="res://src/menus/upgrade/upgrade_audio_player.gd" id="10_glu6q"]
+[ext_resource type="Texture2D" uid="uid://umijbffbtn2x" path="res://src/upgrades/upgrades/icons/Tail_Increase.png" id="11_h64j7"]
+[ext_resource type="Texture2D" uid="uid://cim2tgh6nwpg1" path="res://src/upgrades/upgrades/icons/orange_spawn.png" id="11_w4ida"]
+[ext_resource type="Texture2D" uid="uid://duxq6k5s17plu" path="res://src/upgrades/upgrades/icons/Spawn_Chance_Up.png" id="12_rqjkk"]
 
 [sub_resource type="Gradient" id="Gradient_t3hjq"]
 offsets = PackedFloat32Array(1)
@@ -31,6 +41,7 @@ test = NodePath("../Node2D")
 position = Vector2(-20.6608, 19.9129)
 scale = Vector2(9.56931, 805.065)
 texture = SubResource("GradientTexture1D_gwlso")
+metadata/_edit_lock_ = true
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -43,24 +54,63 @@ upgrade_container = NodePath("../UpgradeContainer")
 [node name="Button" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = -149.0
 offset_top = -33.0
-offset_right = -13.0
-offset_bottom = 103.0
+offset_right = -77.0
+offset_bottom = 39.0
+icon = ExtResource("4_why3x")
 upgrade_resource = ExtResource("3_m5u62")
 
 [node name="Button2" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = -480.71
 offset_top = -209.666
-offset_right = -344.71
-offset_bottom = -73.6659
+offset_right = -472.71
+offset_bottom = -201.666
+icon = ExtResource("4_why3x")
 upgrade_resource = ExtResource("5_53qew")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button3" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
 offset_left = -870.449
 offset_top = -398.206
-offset_right = -734.449
-offset_bottom = -262.206
+offset_right = -862.449
+offset_bottom = -390.206
+icon = ExtResource("7_hv3dt")
 upgrade_resource = ExtResource("6_t3hjq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
+offset_left = 166.353
+offset_top = -254.77
+offset_right = 238.353
+offset_bottom = -182.77
+icon = ExtResource("8_ohrhp")
+upgrade_resource = ExtResource("7_glu6q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button7" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
+offset_left = 344.536
+offset_top = -386.523
+offset_right = 416.536
+offset_bottom = -314.523
+icon = ExtResource("11_w4ida")
+upgrade_resource = ExtResource("8_jl7t6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button5" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
+offset_left = 116.58
+offset_top = -418.839
+offset_right = 188.58
+offset_bottom = -346.839
+icon = ExtResource("12_rqjkk")
+upgrade_resource = ExtResource("8_55ftc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button6" parent="Node2D/UpgradeContainer" instance=ExtResource("2_5gbj0")]
+offset_left = -185.584
+offset_top = -300.257
+offset_right = -113.584
+offset_bottom = -228.257
+icon = ExtResource("11_h64j7")
+upgrade_resource = ExtResource("9_nv4kv")
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeTooltip" parent="." instance=ExtResource("5_siov3")]
@@ -106,7 +156,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[color=red]Apple[/color]: %s"
+text = "[color=red]Apple[/color]: %s
+[color=orange]Orange[/color]: %s"
 fit_content = true
 
 [node name="PlayAgainButton" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -119,4 +170,5 @@ text = "Main Menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_vyefe")
+volume_db = -11.008
 script = ExtResource("10_glu6q")

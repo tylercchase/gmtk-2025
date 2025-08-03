@@ -32,8 +32,8 @@ func get_modifiers(attribute: String, value: Variant) -> Variant:
 
 
 var inventory = {
-    "apple": 0,
-    "oranges": 0
+    "apple": 100000,
+    "orange": 10000
 }
 
 ### seconds 'till a new thing spawn
@@ -41,5 +41,6 @@ var spawn_tick_rate = 0.5
 ### chance that something shows up 0.0-1.0 %
 var spawn_chance = 0.5
 var spawn_rates = {
-    "apple": 1.0
+    "apple": 1.0,
+    "orange": 0.0
 }

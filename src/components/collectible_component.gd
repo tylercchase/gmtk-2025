@@ -7,6 +7,7 @@ var is_collected = false
 
 
 func on_interact():
-    if !is_collected:
-        collected.emit()
-        is_collected = true
+    # This would stop collectibles from being collected multiple times, but it's kinda funny to leave it in
+    # if !is_collected:
+    collected.emit()
+    # is_collected = true

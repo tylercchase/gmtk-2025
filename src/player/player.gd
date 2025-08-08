@@ -4,7 +4,7 @@ extends Area2D
 @export var SPEED = 200
 
 var direction = Vector2(0,-1)
-var rotation_amount = 0.04
+var rotation_amount = 2.5
 
 var screen_size # Size of the game window.
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	 screen_size
 	)
 	if Input.is_action_pressed("move_right"):
-		target_angle += rotation_amount
+		target_angle += rotation_amount * delta
 	elif Input.is_action_pressed("move_left"):
-		target_angle -= rotation_amount
+		target_angle -= rotation_amount * delta
 	rotation = lerp_angle(rotation, target_angle, 0.1)

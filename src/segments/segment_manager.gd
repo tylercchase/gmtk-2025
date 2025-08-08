@@ -15,6 +15,8 @@ var segments: Array[Node2D] = []
 
 @export var shake_node: ShakerComponent2D
 @export var loop_audio: AudioStreamPlayer
+
+var collision_timer: Timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var timer = Timer.new()
@@ -22,6 +24,19 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start(0.1)
 	timer.timeout.connect(_on_timer_timeout)
+	area.area_entered.connect(_on_area_entered)
+	collision_timer = Timer.new()
+	collision_timer.one_shot = true
+	add_child(collision_timer)
+	collision_timer.timeout.connect(_on_collision_timer_timeout)
+
+
+func _on_area_entered(item: Area2D):
+	if item.has_method("on_interact"):
+		item.on_interact()
+
+func _on_collision_timer_timeout():
+	area.monitoring = false
 
 # Used to create a new player node in global position after the timer runs out each time.
 func _on_timer_timeout():
@@ -55,11 +70,8 @@ func check_closed_loops():
 			tween.tween_property(test_polygon_node_2, "color", Color("1f1f1f00"), 0.5)
 			if shake_node:
 				shake_node.play_shake()
+			area.monitoring = true
 			area_collision_shape.shape.set_points(temp)
 			if loop_audio:
 				loop_audio.play()
-			await Engine.get_main_loop().process_frame
-			await Engine.get_main_loop().process_frame
-			for item in area.get_overlapping_areas():
-				if item.has_method("on_interact"):
-					item.on_interact()
+			collision_timer.start(0.05) # time until collision area deactivates

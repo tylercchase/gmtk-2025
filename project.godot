@@ -21,6 +21,10 @@ State="*res://src/singletons/state.gd"
 Events="*res://src/singletons/events.gd"
 Shaker="*res://addons/shaker/src/Shaker.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
